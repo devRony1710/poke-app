@@ -12,11 +12,15 @@ export const Input: FC<InputProps> = ({ label, hasLeftIcon = true, value, ...pro
       {hasLeftIcon && (
         <img src={SearchIcon} alt="search icon" className="input-search-icon" />
       )}
-      <input className="input" value={value} {...props} />
+      <input data-testid="input-element" className="input" value={value} {...props} />
 
       {!!value && (
         <button type="button" className="input-button-clean-value">
-          <img src={CloseIcon} alt="close button icon" />
+          <img
+            data-testid="button-icon-element"
+            src={CloseIcon}
+            alt="close button icon"
+          />
         </button>
       )}
     </div>
