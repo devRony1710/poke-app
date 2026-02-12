@@ -1,7 +1,10 @@
+import { Header } from '@/components/header/Header';
+import './Home.css';
+
 export const HomePage = () => {
   return (
-    <section>
-      <h1>Home Page</h1>
+    <section className="home-container">
+      <Header />
     </section>
   );
 };
