@@ -1,6 +1,9 @@
 :root {
   font-family: 'Poppins', sans-serif;
   --primary-red-color: #dc0a2d;
+  --gray-scale: #666666;
+  --gray-scale-dark: #1d1d1d;
+  --gray-scale-bg: #efefef;
 }
 
 * {
