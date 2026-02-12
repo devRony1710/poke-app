@@ -6,16 +6,21 @@ import TagIcon from '@assets/icons/tag.svg';
 export const Header = () => {
   return (
     <header className="header-wrapper">
-      <div className="brand-container">
-        <img src={PokeballLogo} alt="Pokeball logo" />
+      <div data-testid="brand-container" className="brand-container">
+        <img data-testid="brand-logo" src={PokeballLogo} alt="Pokeball logo" />
         <span className="brand-title">Pokédex</span>
       </div>
 
-      <div className="filters-wrapper">
+      <div className="filters-wrapper" data-testid="filters-wrapper">
         <Input placeholder="Search" />
 
-        <button type="button" className="button-icon">
-          <img className="button-icon-image" src={TagIcon} alt="button icon" />
+        <button type="button" className="button-icon" data-testid="button-icon">
+          <img
+            className="button-icon-image"
+            src={TagIcon}
+            alt="button icon"
+            data-testid="button-icon-element"
+          />
         </button>
       </div>
     </header>
