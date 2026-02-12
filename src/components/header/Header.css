@@ -24,3 +24,15 @@
   align-items: center;
   gap: 16px;
 }
+
+.button-icon {
+  background-color: white;
+  border: none;
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+}
+
+.button-icon-image {
+  object-fit: cover;
+}

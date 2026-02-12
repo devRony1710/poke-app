@@ -1,6 +1,7 @@
 import PokeballLogo from '@assets/icons/pokeball.svg';
 import './Header.css';
 import { Input } from '@components/input/Input';
+import TagIcon from '@assets/icons/tag.svg';
 
 export const Header = () => {
   return (
@@ -13,14 +14,9 @@ export const Header = () => {
       <div className="filters-wrapper">
         <Input placeholder="Search" />
 
-        <div
-          style={{
-            backgroundColor: 'white',
-            height: 10,
-            width: 10,
-            borderRadius: 100,
-          }}
-        ></div>
+        <button type="button" className="button-icon">
+          <img className="button-icon-image" src={TagIcon} alt="button icon" />
+        </button>
       </div>
     </header>
   );
