@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 16px;
   align-items: start;
+  width: 100dvw;
+  padding: 16px;
 }
 
 .brand-container {

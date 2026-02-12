@@ -1,0 +1,9 @@
+.list-pokemons-main-wrapper {
+  width: 97dvw;
+  height: 100%;
+  margin: 0 auto;
+  padding: 8px 16px;
+  background-color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
