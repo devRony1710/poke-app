@@ -1,0 +1,6 @@
+.home-container {
+  background-color: var(--primary-red-color);
+  height: 100dvh;
+  width: 100dvw;
+  padding: 16px;
+}
