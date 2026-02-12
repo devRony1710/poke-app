@@ -15,8 +15,6 @@ describe('Header section component test suit', () => {
     const buttonIcon = screen.getByTestId('button-icon');
     const buttonIconElement = screen.getByTestId('button-icon-element');
 
-    screen.debug();
-
     expect(brandContainer).toBeInTheDocument();
     expect(imagePokeballLogo).toBeInTheDocument();
     expect(brandContainer).toHaveTextContent('Pokédex');
