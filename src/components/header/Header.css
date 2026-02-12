@@ -1,0 +1,26 @@
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: start;
+}
+
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+}
+
+.filters-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
