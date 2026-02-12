@@ -1,24 +1,33 @@
 import { PokemonCard } from '@/components/pokemon-card/PokemonCard';
 import './ListOfPokemons.css';
-import { useQuery } from '@tanstack/react-query';
-import { getListOfPokemons } from '@/api/get-list-of-pokemons/get-list-of-pokemons';
 import { formatPokemonId } from '@/lib/formatPokemonId';
+import { Loader } from 'lucide-react';
+import { useListOfPokemons } from './_logic/useListOfPokemons';
 
 export const ListOfPokemonsTemplate = () => {
-  const { data } = useQuery({
-    queryKey: ['GET_LIST_OF_POKEMONS'],
-    queryFn: () => getListOfPokemons(),
-  });
+  const { data, observerRef, isFetchingNextPage, navigate } = useListOfPokemons();
 
   return (
     <section className="list-pokemons-main-wrapper">
-      {data?.flatMap((pokemon) => (
-        <PokemonCard
-          pokemonId={formatPokemonId(pokemon.id)}
-          pokemonName={pokemon.name}
-          pokemonImg={pokemon.image}
-        />
-      ))}
+      {data?.pages.flatMap((page) =>
+        page.results.map((pokemon) => (
+          <PokemonCard
+            key={pokemon.id}
+            pokemonId={formatPokemonId(pokemon.id)}
+            pokemonName={pokemon.name}
+            pokemonImg={pokemon.image}
+            onClickCard={() => navigate(`/pokemon-detail/${pokemon.id}`)}
+          />
+        )),
+      )}
+
+      <div ref={observerRef} />
+
+      {isFetchingNextPage && (
+        <div className="spinner-container">
+          <Loader className="spinner-icon" />
+        </div>
+      )}
     </section>
   );
 };

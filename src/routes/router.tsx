@@ -8,6 +8,14 @@ export const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
+    path: '/pokemon-detail/:id',
+    element: (
+      <div>
+        <span>hola</span>
+      </div>
+    ),
+  },
+  {
     path: '*',
     element: <NotFound />,
   },
