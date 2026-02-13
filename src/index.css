@@ -5,8 +5,17 @@
   --gray-scale-light: #e0e0e0;
   --gray-scale-dark: #1d1d1d;
   --gray-scale-bg: #efefef;
+
+  /* Pokemon types colors */
   --color-type-grass: #74cb48;
   --color-type-electric: #f9cf30;
+  --color-type-fire: #f57d31;
+  --color-type-water: #6493eb;
+  --color-type-bug: #a7b723;
+  --color-type-ghost: #70559b;
+  --color-type-normal: #aaa67f;
+  --color-type-physic: #fb5584;
+  --color-type-steel: #b7b9d0;
 }
 
 * {
