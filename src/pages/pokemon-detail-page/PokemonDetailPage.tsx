@@ -23,6 +23,7 @@ export const PokemonDetailPage = () => {
       pokemonLorem={data?.pokemonLorem ?? ''}
       moves={data?.moves ?? []}
       stats={data?.pokemonStats ?? []}
+      pokemonId={data?.id ?? 0}
     />
   );
 };

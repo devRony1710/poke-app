@@ -3,7 +3,10 @@ import './DetailTemplateHeader.css';
 import type { FC } from 'react';
 import type { DetailTemplateHeaderProps } from './DetailTemplateHeader.types';
 
-export const DetailTemplateHeader: FC<DetailTemplateHeaderProps> = ({ pokemonName }) => {
+export const DetailTemplateHeader: FC<DetailTemplateHeaderProps> = ({
+  pokemonName,
+  tagId,
+}) => {
   return (
     <div className="header-detail-page-wrapper">
       <div className="header-name-wrapper">
@@ -13,7 +16,7 @@ export const DetailTemplateHeader: FC<DetailTemplateHeaderProps> = ({ pokemonNam
         <span className="header-name">{pokemonName}</span>
       </div>
 
-      <span className="header-id-tag">#001</span>
+      <span className="header-id-tag">#{tagId.toString().padStart(3, '0')}</span>
     </div>
   );
 };

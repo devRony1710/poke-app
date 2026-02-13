@@ -45,6 +45,7 @@ export interface PokemonByIdResponse {
   weight: number;
   pokemonLorem: string;
   moves: MovesTypes[];
+  id: number;
   pokemonStats: { label: string; value: number }[];
 }
 

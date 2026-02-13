@@ -14,10 +14,11 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonLorem,
   moves,
   stats,
+  pokemonId,
 }) => {
   return (
     <section className="detail-page-main-wrapper">
-      <DetailTemplateHeader pokemonName={pokemonName} />
+      <DetailTemplateHeader pokemonName={pokemonName} tagId={pokemonId} />
 
       <img
         className="pokeball-background"
