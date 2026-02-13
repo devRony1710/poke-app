@@ -6,7 +6,7 @@ interface AppProviderProps {
 }
 
 export const AppProvider = ({ children }: AppProviderProps) => {
-  const [selectedPokemon, setSelectedPokemon] = useState<string | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<number | null>(null);
 
   return (
     <AppContext.Provider value={{ selectedPokemon, setSelectedPokemon }}>
