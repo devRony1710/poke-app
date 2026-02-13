@@ -15,6 +15,7 @@
   gap: 8px;
   height: 100%;
   width: 100px;
+  position: relative;
 }
 
 .border-right {
@@ -33,6 +34,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-bottom: 16px;
 }
 
 .info-stats-value {
@@ -42,6 +44,8 @@
 }
 
 .info-stats-label {
+  position: absolute;
+  bottom: 0;
   font-size: 8px;
   line-height: 12px;
   color: var(--gray-scale);
@@ -51,6 +55,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  margin-bottom: 14px;
 }
 
 .abilities-text {
