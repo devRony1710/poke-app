@@ -9,7 +9,7 @@ export const PokemonImageWithButtons = () => {
         <ChevronLeft className="chevron-styles" />
       </button>
 
-      <img className="pokemon-image" src={PikachuImg} alt="pikachu" />
+      <img className="pokemon-image-with-button" src={PikachuImg} alt="pikachu" />
 
       <button className="chevron-button" type="button">
         <ChevronRight className="chevron-styles" />
