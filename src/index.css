@@ -16,6 +16,16 @@
   --color-type-normal: #aaa67f;
   --color-type-physic: #fb5584;
   --color-type-steel: #b7b9d0;
+
+  --color-type-grass-light: #e3f5da;
+  --color-type-electric-light: #fef5d6;
+  --color-type-fire-light: #fde4d8;
+  --color-type-water-light: #e0e9fa;
+  --color-type-bug-light: #edf2d5;
+  --color-type-ghost-light: #e2ddea;
+  --color-type-normal-light: #eeede6;
+  --color-type-physic-light: #fedce6;
+  --color-type-steel-light: #f1f1f6;
 }
 
 * {
@@ -60,6 +70,43 @@
 
 .background-color-steel {
   background-color: var(--color-type-steel);
+}
+
+/* background colors light  */
+.background-color-electric-light {
+  background-color: var(--color-type-electric-light);
+}
+
+.background-color-grass-light {
+  background-color: var(--color-type-grass-light);
+}
+
+.background-color-fire-light {
+  background-color: var(--color-type-fire-light);
+}
+
+.background-color-water-light {
+  background-color: var(--color-type-water-light);
+}
+
+.background-color-bug-light {
+  background-color: var(--color-type-bug-light);
+}
+
+.background-color-ghost-light {
+  background-color: var(--color-type-ghost-light);
+}
+
+.background-color-normal-light {
+  background-color: var(--color-type-normal-light);
+}
+
+.background-color-physic-light {
+  background-color: var(--color-type-physic-light);
+}
+
+.background-color-steel-light {
+  background-color: var(--color-type-steel-light);
 }
 
 /* text colors by pokemon */

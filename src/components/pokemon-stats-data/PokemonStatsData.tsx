@@ -3,6 +3,7 @@ import './PokemonStatsData.css';
 import type { PokemonStatsProps } from './PokemonStatsData.types';
 import {
   getBackgroundColorPokemon,
+  getBackgroundColorPokemonLight,
   getTextColorPokemon,
 } from '@/lib/getBackgroundColorPokemon';
 
@@ -42,7 +43,9 @@ export const PokemonStats = ({
 
           return (
             <div key={stat?.label} className="stat-row">
-              <div className="stat-bar">
+              <div
+                className={clsx('stat-bar', getBackgroundColorPokemonLight(pokemonType))}
+              >
                 <div
                   className={clsx(
                     'stat-bar-fill',
