@@ -18,6 +18,7 @@ export const PokemonDetailPage = () => {
     <PokemonDetailTemplate
       pokemonName={formatPokemonName(data?.name ?? 'Pikachu')}
       pokemonImage={data?.pokemonImage ?? ''}
+      pokemonTypes={data?.types ?? []}
     />
   );
 };

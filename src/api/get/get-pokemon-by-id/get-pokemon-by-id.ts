@@ -1,9 +1,18 @@
 import { api } from '@/api/axios-config/axios-config';
 import { isAxiosError } from 'axios';
 
+export type PokemonTypes = {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+};
+
 export interface PokemonByIdResponse {
   name: string;
   pokemonImage: string;
+  types: PokemonTypes[];
 }
 
 export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResponse> => {

@@ -8,6 +8,7 @@ import type { PokemonDetailTemplateProps } from './PokemonDetailTemplate.types';
 export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonName,
   pokemonImage,
+  pokemonTypes,
 }) => {
   return (
     <section className="detail-page-main-wrapper">
@@ -19,7 +20,7 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
         alt="pokeball background"
       />
 
-      <DetailInfoSection pokemonImage={pokemonImage} />
+      <DetailInfoSection pokemonImage={pokemonImage} pokemonsType={pokemonTypes} />
     </section>
   );
 };

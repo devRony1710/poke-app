@@ -6,13 +6,18 @@ import { PokemonStats } from '@/components/pokemon-stats-data/PokemonStatsData';
 import type { FC } from 'react';
 import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
 
-export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonImage }) => {
+export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({
+  pokemonImage,
+  pokemonsType,
+}) => {
   return (
     <section className="detail-info-wrapper">
       <PokemonImageWithButtons pokemonImage={pokemonImage} />
 
-      <div className="info-section-wrapper">
-        <PokemonTypeTag />
+      <div className="info-section-tags-wrapper">
+        {pokemonsType.map((type) => (
+          <PokemonTypeTag label={type.type.name ?? ''} />
+        ))}
       </div>
 
       <div className="about-wrapper">
