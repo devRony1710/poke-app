@@ -8,6 +8,7 @@ import type {
 } from './PokemonDetailStats.types';
 import clsx from 'clsx';
 import { formatHeight } from '@/lib/formatHeight';
+import type { MovesTypes } from '@/api/get/get-pokemon-by-id/get-pokemon-by-id';
 
 const InfoWrapper: FC<InfoWrapperProps> = ({
   statsLabel,
@@ -38,11 +39,12 @@ const InfoWrapper: FC<InfoWrapperProps> = ({
   );
 };
 
-const Abilities = () => {
+const Abilities = ({ moves }: { moves: MovesTypes[] }) => {
   return (
     <div className="abilities-wrapper">
-      <span className="abilities-text">Mega-Punch</span>
-      <span className="abilities-text">Pay-Day</span>
+      {moves.slice(0, 2).map((move) => (
+        <span className="abilities-text">{move.move.name}</span>
+      ))}
     </div>
   );
 };
@@ -62,7 +64,11 @@ export const PokemonDetailStats: FC<PokemonDetailStatsProps> = ({ pokemonInfoSta
         icon={RuleIcon}
         hasBorder="right"
       />
-      <InfoWrapper statsLabel="Moves" hasBorder="none" customChildren={<Abilities />} />
+      <InfoWrapper
+        statsLabel="Moves"
+        hasBorder="none"
+        customChildren={<Abilities moves={pokemonInfoStats.moves} />}
+      />
     </section>
   );
 };

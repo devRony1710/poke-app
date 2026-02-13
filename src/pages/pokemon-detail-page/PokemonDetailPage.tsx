@@ -22,6 +22,7 @@ export const PokemonDetailPage = () => {
       pokemonHeight={data?.height ?? 0}
       pokemonWeight={data?.weight ?? 0}
       pokemonLorem={data?.pokemonLorem ?? ''}
+      moves={data?.moves ?? []}
     />
   );
 };

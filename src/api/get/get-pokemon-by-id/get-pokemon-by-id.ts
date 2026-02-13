@@ -21,6 +21,13 @@ export type SpanishEntryType = {
   };
 };
 
+export type MovesTypes = {
+  move: {
+    name: string;
+    url: string;
+  };
+};
+
 export interface PokemonByIdResponse {
   name: string;
   pokemonImage: string;
@@ -28,6 +35,7 @@ export interface PokemonByIdResponse {
   height: number;
   weight: number;
   pokemonLorem: string;
+  moves: MovesTypes[];
 }
 
 export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResponse> => {

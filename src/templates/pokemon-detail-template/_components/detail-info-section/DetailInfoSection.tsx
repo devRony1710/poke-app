@@ -25,6 +25,7 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
         pokemonInfoStats={{
           pokemonHeight: pokemonInfo.pokemonHeight,
           pokemonWeight: pokemonInfo.pokemonWeight,
+          moves: pokemonInfo.moves,
         }}
       />
 

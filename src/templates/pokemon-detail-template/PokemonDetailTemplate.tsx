@@ -12,6 +12,7 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonHeight,
   pokemonWeight,
   pokemonLorem,
+  moves,
 }) => {
   return (
     <section className="detail-page-main-wrapper">
@@ -31,6 +32,7 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
           pokemonWeight,
           pokemonLorem,
           pokemonName,
+          moves,
         }}
       />
     </section>

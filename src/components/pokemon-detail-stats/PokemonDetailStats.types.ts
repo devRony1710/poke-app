@@ -9,5 +9,8 @@ export interface InfoWrapperProps {
 }
 
 export interface PokemonDetailStatsProps {
-  pokemonInfoStats: Pick<PokemonDetailTemplateProps, 'pokemonHeight' | 'pokemonWeight'>;
+  pokemonInfoStats: Pick<
+    PokemonDetailTemplateProps,
+    'pokemonHeight' | 'pokemonWeight' | 'moves'
+  >;
 }
