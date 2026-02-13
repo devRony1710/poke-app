@@ -2,7 +2,7 @@ import PokeballLogo from '@assets/icons/pokeball.svg';
 import './Header.css';
 import { Input } from '@components/input/Input';
 import TagIcon from '@assets/icons/tag.svg';
-import type { FC } from 'react';
+import type { FC, RefObject } from 'react';
 import type { HeaderProps } from './Header.types';
 import { FilterModal } from '@components/filter-modal/FilterModal';
 
@@ -36,7 +36,7 @@ export const Header: FC<HeaderProps> = ({ headerConfig }) => {
 
         {headerConfig.openFilterType && (
           <FilterModal
-            ref={headerConfig.modalFilterRef}
+            ref={headerConfig.modalFilterRef as RefObject<HTMLDivElement | null>}
             isOpen={headerConfig.openFilterType}
             onSelectFilterByName={headerConfig.activateFilterByName}
             onSelectFilterByNumber={headerConfig.activateFilterByNumber}
