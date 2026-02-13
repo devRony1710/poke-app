@@ -22,8 +22,10 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
       </div>
 
       <PokemonDetailStats
-        pokemonHeight={pokemonInfo.pokemonHeight}
-        pokemonWeight={pokemonInfo.pokemonWeight}
+        pokemonInfoStats={{
+          pokemonHeight: pokemonInfo.pokemonHeight,
+          pokemonWeight: pokemonInfo.pokemonWeight,
+        }}
       />
 
       <p className="pokemon-description">{pokemonInfo.pokemonLorem}</p>

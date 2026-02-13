@@ -10,9 +10,4 @@ export interface DeatilInfoSectionProps {
     | 'pokemonTypes'
     | 'pokemonWeight'
   >;
-  // pokemonImage: string;
-  // pokemonsType: PokemonTypes[];
-  // pokemonWeight: number;
-  // pokemonHeight: number;
-  // pokemonLorem: string;
 }

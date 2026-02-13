@@ -47,21 +47,18 @@ const Abilities = () => {
   );
 };
 
-export const PokemonDetailStats: FC<PokemonDetailStatsProps> = ({
-  pokemonHeight,
-  pokemonWeight,
-}) => {
+export const PokemonDetailStats: FC<PokemonDetailStatsProps> = ({ pokemonInfoStats }) => {
   return (
     <section className="detail-stats-wrapper ">
       <InfoWrapper
         statsLabel="Weight"
-        value={`${pokemonWeight} kg`}
+        value={`${pokemonInfoStats.pokemonWeight} kg`}
         icon={WeightIcon}
         hasBorder="right"
       />
       <InfoWrapper
         statsLabel="Height"
-        value={formatHeight(pokemonHeight)}
+        value={formatHeight(pokemonInfoStats.pokemonHeight)}
         icon={RuleIcon}
         hasBorder="right"
       />

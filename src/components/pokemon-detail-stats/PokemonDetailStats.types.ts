@@ -1,3 +1,5 @@
+import type { PokemonDetailTemplateProps } from '@/templates/pokemon-detail-template/PokemonDetailTemplate.types';
+
 export interface InfoWrapperProps {
   value?: string;
   statsLabel: string;
@@ -7,6 +9,5 @@ export interface InfoWrapperProps {
 }
 
 export interface PokemonDetailStatsProps {
-  pokemonWeight: number;
-  pokemonHeight: number;
+  pokemonInfoStats: Pick<PokemonDetailTemplateProps, 'pokemonHeight' | 'pokemonWeight'>;
 }
