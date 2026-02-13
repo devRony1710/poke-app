@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { HomePage } from '@/pages/home/Home';
 import { NotFound } from '@/pages/not-found/NotFound';
-import { PokemonDetailPage } from '@/pages/pokemon-detail-page/pokemon-detail-page';
+import { PokemonDetailPage } from '@/pages/pokemon-detail-page/PokemonDetailPage';
 
 export const router = createBrowserRouter([
   {

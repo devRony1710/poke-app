@@ -2,8 +2,11 @@
   font-family: 'Poppins', sans-serif;
   --primary-red-color: #dc0a2d;
   --gray-scale: #666666;
+  --gray-scale-light: #e0e0e0;
   --gray-scale-dark: #1d1d1d;
   --gray-scale-bg: #efefef;
+  --color-type-grass: #74cb48;
+  --color-type-electric: #f9cf30;
 }
 
 * {
