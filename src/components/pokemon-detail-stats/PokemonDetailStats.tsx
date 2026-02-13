@@ -42,8 +42,10 @@ const InfoWrapper: FC<InfoWrapperProps> = ({
 const Abilities = ({ moves }: { moves: MovesTypes[] }) => {
   return (
     <div className="abilities-wrapper">
-      {moves.slice(0, 2).map((move) => (
-        <span className="abilities-text">{move.move.name}</span>
+      {moves?.slice(0, 2)?.map((move) => (
+        <span key={move?.move?.name} className="abilities-text">
+          {move?.move?.name}
+        </span>
       ))}
     </div>
   );

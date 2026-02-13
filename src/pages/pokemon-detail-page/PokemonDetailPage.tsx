@@ -3,6 +3,7 @@ import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context
 import { formatPokemonName } from '@/lib/formatPokemonName';
 import { PokemonDetailTemplate } from '@/templates/pokemon-detail-template/PokemonDetailTemplate';
 import { useQuery } from '@tanstack/react-query';
+import PikachuImg from '@assets/images/pikachu.png';
 
 export const PokemonDetailPage = () => {
   const { selectedPokemon } = useAppContext();
@@ -16,7 +17,7 @@ export const PokemonDetailPage = () => {
   return (
     <PokemonDetailTemplate
       pokemonName={formatPokemonName(data?.name ?? 'Pikachu')}
-      pokemonImage={data?.pokemonImage ?? ''}
+      pokemonImage={data?.pokemonImage ?? PikachuImg}
       pokemonTypes={data?.types ?? []}
       pokemonHeight={data?.height ?? 0}
       pokemonWeight={data?.weight ?? 0}

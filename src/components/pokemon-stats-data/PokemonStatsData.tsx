@@ -1,22 +1,39 @@
+import clsx from 'clsx';
 import './PokemonStatsData.css';
 import type { PokemonStatsProps } from './PokemonStatsData.types';
+import {
+  getBackgroundColorPokemon,
+  getBackgroundColorPokemonLight,
+  getTextColorPokemon,
+} from '@/lib/getBackgroundColorPokemon';
 
-export const PokemonStats = ({ stats, maxValue = 150 }: PokemonStatsProps) => {
+export const PokemonStats = ({
+  stats,
+  maxValue = 150,
+  pokemonType,
+}: PokemonStatsProps) => {
   const statsLabel = stats.map((stat) => stat.label);
   const statsValues = stats.map((stat) => stat.value);
-  console.log('🚀 ~ PokemonStats ~ statsLabel:', statsLabel);
+
   return (
     <div className="stats-container">
       <div className="divider" />
       <div className="stat-label-wrapper">
-        {statsLabel.map((label) => (
-          <span className="stat-label">{label}</span>
+        {statsLabel?.map((label) => (
+          <span
+            key={label}
+            className={clsx('stat-label', getTextColorPokemon(pokemonType))}
+          >
+            {label}
+          </span>
         ))}
       </div>
 
       <div className="stat-label-wrapper">
-        {statsValues.map((value) => (
-          <span className="stat-value">{value?.toString()?.padStart(3, '0')}</span>
+        {statsValues.map((value, index) => (
+          <span key={index} className="stat-value">
+            {value?.toString()?.padStart(3, '0')}
+          </span>
         ))}
       </div>
 
@@ -26,8 +43,16 @@ export const PokemonStats = ({ stats, maxValue = 150 }: PokemonStatsProps) => {
 
           return (
             <div key={stat?.label} className="stat-row">
-              <div className="stat-bar">
-                <div className="stat-bar-fill" style={{ width: `${percentage}%` }} />
+              <div
+                className={clsx('stat-bar', getBackgroundColorPokemonLight(pokemonType))}
+              >
+                <div
+                  className={clsx(
+                    'stat-bar-fill',
+                    getBackgroundColorPokemon(pokemonType),
+                  )}
+                  style={{ width: `${percentage}%` }}
+                />
               </div>
             </div>
           );

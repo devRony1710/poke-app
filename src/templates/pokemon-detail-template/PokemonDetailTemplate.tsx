@@ -4,6 +4,8 @@ import './PokemonDetailTemplate.css';
 import { DetailInfoSection } from './_components/detail-info-section/DetailInfoSection';
 import type { FC } from 'react';
 import type { PokemonDetailTemplateProps } from './PokemonDetailTemplate.types';
+import { getBackgroundColorPokemon } from '@/lib/getBackgroundColorPokemon';
+import clsx from 'clsx';
 
 export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonName,
@@ -17,7 +19,12 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonId,
 }) => {
   return (
-    <section className="detail-page-main-wrapper">
+    <section
+      className={clsx(
+        'detail-page-main-wrapper',
+        getBackgroundColorPokemon(pokemonTypes[0]?.type?.name ?? ''),
+      )}
+    >
       <DetailTemplateHeader pokemonName={pokemonName} tagId={pokemonId} />
 
       <img
