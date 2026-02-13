@@ -10,6 +10,10 @@ export const DetailInfoSection = () => {
       <div className="info-section-wrapper">
         <PokemonTypeTag />
       </div>
+
+      <div className="about-wrapper">
+        <span className="about-text">About</span>
+      </div>
     </section>
   );
 };
