@@ -11,6 +11,8 @@ type FilterSelected = {
   byNumber: boolean;
 };
 
+const MAX_PAGES = 100;
+
 export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
   const [search, setSearch] = useState<string | null>(null);
   const [openFilterType, setOpenFilterType] = useState(false);
@@ -31,7 +33,14 @@ export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
     queryKey: ['GET_LIST_OF_POKEMONS'],
     queryFn: getListOfPokemons,
     initialPageParam: 0,
-    getNextPageParam: (lastPage) => lastPage.nextOffset,
+    getNextPageParam: (lastPage, allPages) => {
+      // Límite de páginas alcanzado para no sobrecargar la petición
+      if (allPages.length >= MAX_PAGES) {
+        return undefined;
+      }
+
+      return lastPage.nextOffset;
+    },
   });
 
   const { ref: observerRef } = useIntersection({
