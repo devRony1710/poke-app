@@ -2,9 +2,27 @@ import { Header } from '@/components/header/Header';
 import { render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 
+vi.mock('@/hooks/use-intersection-observer/use-click-outside', () => ({
+  useClickOutside: vi.fn(),
+}));
+
 describe('Header section component test suit', () => {
   beforeEach(() => {
-    render(<Header />);
+    render(
+      <Header
+        headerConfig={{
+          activateFilterByName: vi.fn(),
+          activateFilterByNumber: vi.fn(),
+          filterSelected: {
+            byName: false,
+            byNumber: true,
+          },
+          openFilterType: false,
+          setOpenFilterType: vi.fn(),
+          setSearch: vi.fn(),
+        }}
+      />,
+    );
   });
 
   it('All elements in header component should be render correctly', () => {
