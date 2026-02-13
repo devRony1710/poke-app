@@ -3,41 +3,39 @@ import { PokemonImageWithButtons } from '../pokemon-image-with-buttons/PokemonIm
 import { PokemonTypeTag } from '@/components/pokemon-type-tag/PokemonTypeTag';
 import { PokemonDetailStats } from '@/components/pokemon-detail-stats/PokemonDetailStats';
 import { PokemonStats } from '@/components/pokemon-stats-data/PokemonStatsData';
+import type { FC } from 'react';
+import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
 
-export const DetailInfoSection = () => {
+export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) => {
   return (
     <section className="detail-info-wrapper">
-      <PokemonImageWithButtons />
+      <PokemonImageWithButtons pokemonImage={pokemonInfo.pokemonImage} />
 
-      <div className="info-section-wrapper">
-        <PokemonTypeTag />
+      <div className="info-section-tags-wrapper">
+        {pokemonInfo.pokemonTypes.map((type) => (
+          <PokemonTypeTag label={type.type.name ?? ''} />
+        ))}
       </div>
 
       <div className="about-wrapper">
         <span className="about-text">About</span>
       </div>
 
-      <PokemonDetailStats />
+      <PokemonDetailStats
+        pokemonInfoStats={{
+          pokemonHeight: pokemonInfo.pokemonHeight,
+          pokemonWeight: pokemonInfo.pokemonWeight,
+          moves: pokemonInfo.moves,
+        }}
+      />
 
-      <p className="pokemon-description">
-        Pikachu that can generate powerful electricity have cheek sacs that are extra soft
-        and super stretchy.
-      </p>
+      <p className="pokemon-description">{pokemonInfo.pokemonLorem}</p>
 
       <div className="base-stats-text-wrapper">
         <span className="base-stats-text">Base Stats</span>
       </div>
 
-      <PokemonStats
-        stats={[
-          { label: 'HP', value: 35 },
-          { label: 'ATK', value: 55 },
-          { label: 'DEF', value: 40 },
-          { label: 'SATK', value: 50 },
-          { label: 'SDEF', value: 50 },
-          { label: 'SPD', value: 90 },
-        ]}
-      />
+      <PokemonStats stats={pokemonInfo.stats ?? []} />
     </section>
   );
 };

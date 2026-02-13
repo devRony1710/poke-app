@@ -9,7 +9,7 @@
   position: absolute;
 }
 
-.pokemon-image {
+.pokemon-image-with-button {
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -18,6 +18,10 @@
 .chevron-button {
   border: none;
   background-color: transparent;
+}
+
+.chevron-button:disabled {
+  opacity: 0%;
 }
 
 .chevron-styles {

@@ -12,10 +12,12 @@
   padding: 16px;
 }
 
-.info-section-wrapper {
+.info-section-tags-wrapper {
   margin-top: 45px;
   width: 100%;
   display: flex;
+  gap: 6px;
+  align-items: center;
   justify-content: center;
 }
 
@@ -43,6 +45,7 @@
   font-size: 10px;
   line-height: 16px;
   color: var(--gray-scale-dark);
+  text-align: center;
 }
 
 .base-stats-text-wrapper {

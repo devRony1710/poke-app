@@ -2,8 +2,13 @@ import type { FC } from 'react';
 import './PokemonDetailStats.css';
 import WeightIcon from '@assets/icons/weight.svg';
 import RuleIcon from '@assets/icons/rule.svg';
-import type { InfoWrapperProps } from './PokemonDetailStats.types';
+import type {
+  InfoWrapperProps,
+  PokemonDetailStatsProps,
+} from './PokemonDetailStats.types';
 import clsx from 'clsx';
+import { formatHeight } from '@/lib/formatHeight';
+import type { MovesTypes } from '@/api/get/get-pokemon-by-id/get-pokemon-by-id';
 
 const InfoWrapper: FC<InfoWrapperProps> = ({
   statsLabel,
@@ -34,26 +39,36 @@ const InfoWrapper: FC<InfoWrapperProps> = ({
   );
 };
 
-const Abilities = () => {
+const Abilities = ({ moves }: { moves: MovesTypes[] }) => {
   return (
     <div className="abilities-wrapper">
-      <span className="abilities-text">Mega-Punch</span>
-      <span className="abilities-text">Pay-Day</span>
+      {moves.slice(0, 2).map((move) => (
+        <span className="abilities-text">{move.move.name}</span>
+      ))}
     </div>
   );
 };
 
-export const PokemonDetailStats = () => {
+export const PokemonDetailStats: FC<PokemonDetailStatsProps> = ({ pokemonInfoStats }) => {
   return (
     <section className="detail-stats-wrapper ">
       <InfoWrapper
         statsLabel="Weight"
-        value="6,0 kg"
+        value={`${pokemonInfoStats.pokemonWeight} kg`}
         icon={WeightIcon}
         hasBorder="right"
       />
-      <InfoWrapper statsLabel="Height" value="0,4 m" icon={RuleIcon} hasBorder="right" />
-      <InfoWrapper statsLabel="Moves" hasBorder="none" customChildren={<Abilities />} />
+      <InfoWrapper
+        statsLabel="Height"
+        value={formatHeight(pokemonInfoStats.pokemonHeight)}
+        icon={RuleIcon}
+        hasBorder="right"
+      />
+      <InfoWrapper
+        statsLabel="Moves"
+        hasBorder="none"
+        customChildren={<Abilities moves={pokemonInfoStats.moves} />}
+      />
     </section>
   );
 };
