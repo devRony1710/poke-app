@@ -2,14 +2,14 @@ import type { FC } from 'react';
 import './FilterModal.css';
 import type { FilterModalProps } from './FilterModal.types';
 
-export const FilterModal: FC<FilterModalProps> = ({ isOpen }) => {
+export const FilterModal: FC<FilterModalProps> = ({ isOpen, ref }) => {
   if (!isOpen) return null;
 
   return (
     <>
       <div className="filter-open-state-bg" />
 
-      <div className="filter-modal-container">
+      <div className="filter-modal-container" ref={ref}>
         <span className="sortby-text">Sort By</span>
 
         <div className="filters-inputs-wrapper">

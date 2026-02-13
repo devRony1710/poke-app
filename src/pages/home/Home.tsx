@@ -13,6 +13,7 @@ export const HomePage = () => {
     setSearch,
     openFilterType,
     setOpenFilterType,
+    modalFilterRef,
   } = useListOfPokemons();
   const { setSelectedPokemon } = useAppContext();
 
@@ -28,6 +29,7 @@ export const HomePage = () => {
           openFilterType,
           setOpenFilterType,
           setSearch,
+          modalFilterRef,
         }}
       />
 

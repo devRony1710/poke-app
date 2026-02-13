@@ -35,7 +35,10 @@ export const Header: FC<HeaderProps> = ({ headerConfig }) => {
         </button>
 
         {headerConfig.openFilterType && (
-          <FilterModal isOpen={headerConfig.openFilterType} />
+          <FilterModal
+            ref={headerConfig.modalFilterRef}
+            isOpen={headerConfig.openFilterType}
+          />
         )}
       </div>
     </header>

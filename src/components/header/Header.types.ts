@@ -3,6 +3,6 @@ import type { UseListOfPokemonsReturnType } from '@/pages/home/_logic/useListOfP
 export interface HeaderProps {
   headerConfig: Pick<
     UseListOfPokemonsReturnType,
-    'setSearch' | 'setOpenFilterType' | 'openFilterType'
+    'setSearch' | 'setOpenFilterType' | 'openFilterType' | 'modalFilterRef'
   >;
 }
