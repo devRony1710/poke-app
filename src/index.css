@@ -24,6 +24,8 @@
   box-sizing: border-box;
 }
 
+/* background colors  */
+
 .background-color-electric {
   background-color: var(--color-type-electric);
 }
@@ -58,4 +60,42 @@
 
 .background-color-steel {
   background-color: var(--color-type-steel);
+}
+
+/* text colors by pokemon */
+
+.text-color-electric {
+  color: var(--color-type-electric);
+}
+
+.text-color-grass {
+  color: var(--color-type-grass);
+}
+
+.text-color-fire {
+  color: var(--color-type-fire);
+}
+
+.text-color-water {
+  color: var(--color-type-water);
+}
+
+.text-color-bug {
+  color: var(--color-type-bug);
+}
+
+.text-color-ghost {
+  color: var(--color-type-ghost);
+}
+
+.text-color-normal {
+  color: var(--color-type-normal);
+}
+
+.text-color-physic {
+  color: var(--color-type-physic);
+}
+
+.text-color-steel {
+  color: var(--color-type-steel);
 }

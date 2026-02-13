@@ -5,23 +5,29 @@ import { PokemonDetailStats } from '@/components/pokemon-detail-stats/PokemonDet
 import { PokemonStats } from '@/components/pokemon-stats-data/PokemonStatsData';
 import type { FC } from 'react';
 import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
+import clsx from 'clsx';
+import { getTextColorPokemon } from '@/lib/getBackgroundColorPokemon';
 
 export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) => {
+  const pokemonType = pokemonInfo?.pokemonTypes[0]?.type?.name;
   return (
     <section className="detail-info-wrapper">
       <PokemonImageWithButtons pokemonImage={pokemonInfo.pokemonImage} />
 
       <div className="info-section-tags-wrapper">
-        {pokemonInfo.pokemonTypes.map((type) => (
+        {pokemonInfo?.pokemonTypes?.map((type) => (
           <PokemonTypeTag
+            key={type?.type?.name}
             label={type.type.name ?? ''}
-            pokemonType={pokemonInfo.pokemonTypes[0].type.name}
+            pokemonType={pokemonType}
           />
         ))}
       </div>
 
       <div className="about-wrapper">
-        <span className="about-text">About</span>
+        <span className={clsx('about-text', getTextColorPokemon(pokemonType))}>
+          About
+        </span>
       </div>
 
       <PokemonDetailStats
@@ -35,10 +41,12 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
       <p className="pokemon-description">{pokemonInfo.pokemonLorem}</p>
 
       <div className="base-stats-text-wrapper">
-        <span className="base-stats-text">Base Stats</span>
+        <span className={clsx('base-stats-text', getTextColorPokemon(pokemonType))}>
+          Base Stats
+        </span>
       </div>
 
-      <PokemonStats stats={pokemonInfo.stats ?? []} />
+      <PokemonStats stats={pokemonInfo.stats ?? []} pokemonType={pokemonType} />
     </section>
   );
 };

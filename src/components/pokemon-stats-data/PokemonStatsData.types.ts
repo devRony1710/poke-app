@@ -6,4 +6,5 @@ export interface Stat {
 export interface PokemonStatsProps {
   stats: Stat[];
   maxValue?: number;
+  pokemonType: string;
 }

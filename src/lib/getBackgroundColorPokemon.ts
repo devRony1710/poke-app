@@ -23,3 +23,29 @@ export const getBackgroundColorPokemon = (pokemonType: string) => {
       return 'background-color-normal';
   }
 };
+
+export const getTextColorPokemon = (pokemonType: string) => {
+  switch (pokemonType) {
+    case 'grass':
+      return 'text-color-grass';
+    case 'water':
+      return 'text-color-water';
+    case 'fire':
+      return 'text-color-fire';
+    case 'bug':
+      return 'text-color-bug';
+    case 'ghost':
+      return 'text-color-ghost';
+    case 'poison':
+      return 'text-color-ghost';
+    case 'physic':
+      return 'text-color-physic';
+    case 'steel':
+      return 'text-color-steel';
+    case 'electric':
+      return 'text-color-electric';
+
+    default:
+      return 'text-color-normal';
+  }
+};
