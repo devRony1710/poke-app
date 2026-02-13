@@ -3,9 +3,11 @@ import { useIntersection } from '@/hooks/use-intersection-observer/use-intersect
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { UseListOfPokemonsReturnType } from './useListOfPokemons.types';
 
-export const useListOfPokemons = () => {
+export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
   const [search, setSearch] = useState<string | null>(null);
+  const [openFilterType, setOpenFilterType] = useState(false);
   const navigate = useNavigate();
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery({
@@ -43,5 +45,7 @@ export const useListOfPokemons = () => {
     navigate,
     filteredPokemons,
     setSearch,
+    setOpenFilterType,
+    openFilterType,
   };
 };

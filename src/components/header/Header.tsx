@@ -5,7 +5,7 @@ import TagIcon from '@assets/icons/tag.svg';
 import type { FC } from 'react';
 import type { HeaderProps } from './Header.types';
 
-export const Header: FC<HeaderProps> = ({ setSearch }) => {
+export const Header: FC<HeaderProps> = ({ headerConfig }) => {
   return (
     <header className="header-wrapper">
       <div data-testid="brand-container" className="brand-container">
@@ -14,7 +14,10 @@ export const Header: FC<HeaderProps> = ({ setSearch }) => {
       </div>
 
       <div className="filters-wrapper" data-testid="filters-wrapper">
-        <Input placeholder="Search" onChange={(event) => setSearch(event.target.value)} />
+        <Input
+          placeholder="Search"
+          onChange={(event) => headerConfig.setSearch(event.target.value)}
+        />
 
         <button type="button" className="button-icon" data-testid="button-icon">
           <img

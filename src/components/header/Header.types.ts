@@ -1,3 +1,8 @@
+import type { UseListOfPokemonsReturnType } from '@/pages/home/_logic/useListOfPokemons.types';
+
 export interface HeaderProps {
-  setSearch: React.Dispatch<React.SetStateAction<string | null>>;
+  headerConfig: Pick<
+    UseListOfPokemonsReturnType,
+    'setSearch' | 'setOpenFilterType' | 'openFilterType'
+  >;
 }

@@ -5,8 +5,15 @@ import { useListOfPokemons } from '@/pages/home/_logic/useListOfPokemons';
 import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context';
 
 export const HomePage = () => {
-  const { observerRef, isFetchingNextPage, navigate, filteredPokemons, setSearch } =
-    useListOfPokemons();
+  const {
+    observerRef,
+    isFetchingNextPage,
+    navigate,
+    filteredPokemons,
+    setSearch,
+    openFilterType,
+    setOpenFilterType,
+  } = useListOfPokemons();
   const { setSelectedPokemon } = useAppContext();
 
   const handleClickPokemonCard = (pokemonId: number) => {
@@ -16,7 +23,13 @@ export const HomePage = () => {
 
   return (
     <section className="home-container">
-      <Header setSearch={setSearch} />
+      <Header
+        headerConfig={{
+          openFilterType,
+          setOpenFilterType,
+          setSearch,
+        }}
+      />
 
       <ListOfPokemonsTemplate
         data={filteredPokemons}
