@@ -18,4 +18,16 @@ export interface UseListOfPokemonsReturnType {
   setOpenFilterType: React.Dispatch<React.SetStateAction<boolean>>;
   openFilterType: boolean;
   modalFilterRef: ModalFilterRefType;
+  filterSelected: {
+    byName: boolean;
+    byNumber: boolean;
+  };
+  setFilterSelected: React.Dispatch<
+    React.SetStateAction<{
+      byName: boolean;
+      byNumber: boolean;
+    }>
+  >;
+  activateFilterByName: VoidFunction;
+  activateFilterByNumber: VoidFunction;
 }

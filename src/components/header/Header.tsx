@@ -38,6 +38,9 @@ export const Header: FC<HeaderProps> = ({ headerConfig }) => {
           <FilterModal
             ref={headerConfig.modalFilterRef}
             isOpen={headerConfig.openFilterType}
+            onSelectFilterByName={headerConfig.activateFilterByName}
+            onSelectFilterByNumber={headerConfig.activateFilterByNumber}
+            selectedFilter={headerConfig.filterSelected}
           />
         )}
       </div>

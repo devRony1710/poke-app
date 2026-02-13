@@ -6,9 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import type { UseListOfPokemonsReturnType } from './useListOfPokemons.types';
 import { useClickOutside } from '@/hooks/use-intersection-observer/use-click-outside';
 
+type FilterSelected = {
+  byName: boolean;
+  byNumber: boolean;
+};
+
 export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
   const [search, setSearch] = useState<string | null>(null);
   const [openFilterType, setOpenFilterType] = useState(false);
+  const [filterSelected, setFilterSelected] = useState<FilterSelected>({
+    byName: false,
+    byNumber: true,
+  });
+
   const modalFilterRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(modalFilterRef as RefObject<HTMLElement>, () =>
@@ -37,13 +47,40 @@ export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
   const pokemons = data?.pages.flatMap((page) => page.results) ?? [];
 
   const filteredPokemons = useMemo(() => {
-    if (!search) return pokemons;
+    let result = pokemons;
 
-    return pokemons.filter(
-      (pokemon) =>
-        pokemon.name.includes(search.toLowerCase()) || pokemon.id.toString() === search,
-    );
-  }, [pokemons, search]);
+    if (search) {
+      const searchLower = search.toLowerCase();
+      result = result.filter(
+        (pokemon) =>
+          pokemon.name.includes(searchLower) || pokemon.id.toString() === search,
+      );
+    }
+
+    if (filterSelected.byName) {
+      return [...result].sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    if (filterSelected.byNumber) {
+      return [...result].sort((a, b) => a.id - b.id);
+    }
+
+    return result;
+  }, [pokemons, search, filterSelected]);
+
+  const activateFilterByName = () => {
+    setFilterSelected({
+      byName: true,
+      byNumber: false,
+    });
+  };
+
+  const activateFilterByNumber = () => {
+    setFilterSelected({
+      byName: false,
+      byNumber: true,
+    });
+  };
 
   return {
     data,
@@ -55,5 +92,9 @@ export const useListOfPokemons = (): UseListOfPokemonsReturnType => {
     setOpenFilterType,
     openFilterType,
     modalFilterRef,
+    filterSelected,
+    activateFilterByName,
+    activateFilterByNumber,
+    setFilterSelected,
   };
 };

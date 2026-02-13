@@ -14,6 +14,9 @@ export const HomePage = () => {
     openFilterType,
     setOpenFilterType,
     modalFilterRef,
+    activateFilterByName,
+    activateFilterByNumber,
+    filterSelected,
   } = useListOfPokemons();
   const { setSelectedPokemon } = useAppContext();
 
@@ -30,6 +33,9 @@ export const HomePage = () => {
           setOpenFilterType,
           setSearch,
           modalFilterRef,
+          activateFilterByName,
+          activateFilterByNumber,
+          filterSelected,
         }}
       />
 
