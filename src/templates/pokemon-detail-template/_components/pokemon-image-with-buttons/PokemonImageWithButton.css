@@ -20,6 +20,10 @@
   background-color: transparent;
 }
 
+.chevron-button:disabled {
+  opacity: 0%;
+}
+
 .chevron-styles {
   color: white;
 }
