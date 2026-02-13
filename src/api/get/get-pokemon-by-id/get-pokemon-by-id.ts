@@ -9,7 +9,7 @@ export type PokemonTypes = {
   };
 };
 
-export type SpanishEntryType = {
+export type EnglishEntryType = {
   flavor_text: string;
   language: {
     name: string;
@@ -46,12 +46,12 @@ export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResp
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`,
     );
 
-    const spanishEntry = species.flavor_text_entries.find(
-      (entry: SpanishEntryType) => entry.language.name === 'es',
+    const englishEntry = species.flavor_text_entries.find(
+      (entry: EnglishEntryType) => entry.language.name === 'en',
     );
 
     return {
-      pokemonLorem: spanishEntry.flavor_text,
+      pokemonLorem: englishEntry.flavor_text,
       pokemonImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
       ...data,
     };
