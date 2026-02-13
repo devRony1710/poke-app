@@ -11,4 +11,5 @@ export interface PokemonDetailTemplateProps {
   pokemonWeight: number;
   pokemonLorem: string;
   moves: MovesTypes[];
+  stats: { label: string; value: number }[];
 }

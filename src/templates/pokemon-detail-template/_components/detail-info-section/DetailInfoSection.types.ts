@@ -10,5 +10,6 @@ export interface DeatilInfoSectionProps {
     | 'pokemonTypes'
     | 'pokemonWeight'
     | 'moves'
+    | 'stats'
   >;
 }

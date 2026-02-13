@@ -35,16 +35,7 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
         <span className="base-stats-text">Base Stats</span>
       </div>
 
-      <PokemonStats
-        stats={[
-          { label: 'HP', value: 35 },
-          { label: 'ATK', value: 55 },
-          { label: 'DEF', value: 40 },
-          { label: 'SATK', value: 50 },
-          { label: 'SDEF', value: 50 },
-          { label: 'SPD', value: 90 },
-        ]}
-      />
+      <PokemonStats stats={pokemonInfo.stats ?? []} />
     </section>
   );
 };

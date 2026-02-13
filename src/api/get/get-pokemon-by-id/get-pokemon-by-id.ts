@@ -28,6 +28,15 @@ export type MovesTypes = {
   };
 };
 
+export type PokemonStatsType = {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+};
+
 export interface PokemonByIdResponse {
   name: string;
   pokemonImage: string;
@@ -36,7 +45,17 @@ export interface PokemonByIdResponse {
   weight: number;
   pokemonLorem: string;
   moves: MovesTypes[];
+  pokemonStats: { label: string; value: number }[];
 }
+
+const statLabelMap: Record<string, string> = {
+  hp: 'HP',
+  attack: 'ATK',
+  defense: 'DEF',
+  'special-attack': 'SATK',
+  'special-defense': 'SDEF',
+  speed: 'SPD',
+};
 
 export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResponse> => {
   try {
@@ -50,7 +69,13 @@ export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResp
       (entry: EnglishEntryType) => entry.language.name === 'en',
     );
 
+    const formattedStats = data.stats.map((stat: PokemonStatsType) => ({
+      label: statLabelMap[stat.stat.name],
+      value: stat.base_stat,
+    }));
+
     return {
+      pokemonStats: formattedStats,
       pokemonLorem: englishEntry.flavor_text,
       pokemonImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
       ...data,

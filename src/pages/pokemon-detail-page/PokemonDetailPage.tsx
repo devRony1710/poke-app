@@ -13,7 +13,6 @@ export const PokemonDetailPage = () => {
     enabled: !!selectedPokemon,
   });
 
-  console.log('🚀 ~ PokemonDetailPage ~ data:', data);
   return (
     <PokemonDetailTemplate
       pokemonName={formatPokemonName(data?.name ?? 'Pikachu')}
@@ -23,6 +22,7 @@ export const PokemonDetailPage = () => {
       pokemonWeight={data?.weight ?? 0}
       pokemonLorem={data?.pokemonLorem ?? ''}
       moves={data?.moves ?? []}
+      stats={data?.pokemonStats ?? []}
     />
   );
 };
