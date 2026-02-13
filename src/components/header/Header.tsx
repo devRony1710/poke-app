@@ -4,6 +4,7 @@ import { Input } from '@components/input/Input';
 import TagIcon from '@assets/icons/tag.svg';
 import type { FC } from 'react';
 import type { HeaderProps } from './Header.types';
+import { FilterModal } from '@components/filter-modal/FilterModal';
 
 export const Header: FC<HeaderProps> = ({ headerConfig }) => {
   return (
@@ -19,7 +20,12 @@ export const Header: FC<HeaderProps> = ({ headerConfig }) => {
           onChange={(event) => headerConfig.setSearch(event.target.value)}
         />
 
-        <button type="button" className="button-icon" data-testid="button-icon">
+        <button
+          type="button"
+          className="button-icon"
+          data-testid="button-icon"
+          onClick={() => headerConfig.setOpenFilterType(!headerConfig.openFilterType)}
+        >
           <img
             className="button-icon-image"
             src={TagIcon}
@@ -27,6 +33,10 @@ export const Header: FC<HeaderProps> = ({ headerConfig }) => {
             data-testid="button-icon-element"
           />
         </button>
+
+        {headerConfig.openFilterType && (
+          <FilterModal isOpen={headerConfig.openFilterType} />
+        )}
       </div>
     </header>
   );
