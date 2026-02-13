@@ -1,0 +1,13 @@
+.detail-info-wrapper {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 65%;
+  position: absolute;
+  bottom: 0;
+  width: 97dvw;
+  margin: 0 auto;
+  background-color: white;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 16px;
+}
