@@ -13,4 +13,5 @@ export interface PokemonDetailTemplateProps {
   moves: MovesTypes[];
   stats: { label: string; value: number }[];
   pokemonId: number;
+  isLoadingData: boolean;
 }

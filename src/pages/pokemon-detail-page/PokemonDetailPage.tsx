@@ -8,7 +8,7 @@ import PikachuImg from '@assets/images/pikachu.png';
 export const PokemonDetailPage = () => {
   const { selectedPokemon } = useAppContext();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['GET_POKEMON_BY_ID', selectedPokemon],
     queryFn: () => getPokemonById(selectedPokemon ?? 1),
     enabled: !!selectedPokemon,
@@ -25,6 +25,7 @@ export const PokemonDetailPage = () => {
       moves={data?.moves ?? []}
       stats={data?.pokemonStats ?? []}
       pokemonId={data?.id ?? 0}
+      isLoadingData={isLoading}
     />
   );
 };
