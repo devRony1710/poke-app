@@ -2,31 +2,26 @@ import { PokemonCard } from '@/components/pokemon-card/PokemonCard';
 import './ListOfPokemons.css';
 import { formatPokemonId } from '@/lib/formatPokemonId';
 import { Loader } from 'lucide-react';
-import { useListOfPokemons } from './_logic/useListOfPokemons';
-import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context';
+import type { FC } from 'react';
+import type { ListOfPokemonsTemplateProps } from './ListOfPokemonsTemplate.types';
 
-export const ListOfPokemonsTemplate = () => {
-  const { data, observerRef, isFetchingNextPage, navigate } = useListOfPokemons();
-  const { setSelectedPokemon } = useAppContext();
-
-  const handleClickPokemonCard = (pokemonId: number) => {
-    navigate(`/pokemon-detail/${pokemonId}`);
-    setSelectedPokemon(pokemonId);
-  };
-
+export const ListOfPokemonsTemplate: FC<ListOfPokemonsTemplateProps> = ({
+  data,
+  handleClickPokemonCard,
+  isFetchingNextPage,
+  observerRef,
+}) => {
   return (
     <section className="list-pokemons-main-wrapper">
-      {data?.pages.flatMap((page) =>
-        page.results.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.id}
-            pokemonId={formatPokemonId(pokemon.id)}
-            pokemonName={pokemon.name}
-            pokemonImg={pokemon.image}
-            onClickCard={() => handleClickPokemonCard(pokemon.id)}
-          />
-        )),
-      )}
+      {data.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.id}
+          pokemonId={formatPokemonId(pokemon.id)}
+          pokemonName={pokemon.name}
+          pokemonImg={pokemon.image}
+          onClickCard={() => handleClickPokemonCard(pokemon.id)}
+        />
+      ))}
 
       <div ref={observerRef} />
 

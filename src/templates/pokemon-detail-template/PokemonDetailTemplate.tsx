@@ -6,6 +6,7 @@ import type { FC } from 'react';
 import type { PokemonDetailTemplateProps } from './PokemonDetailTemplate.types';
 import { getBackgroundColorPokemon } from '@/lib/getBackgroundColorPokemon';
 import clsx from 'clsx';
+import { Loader2 } from 'lucide-react';
 
 export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   pokemonName,
@@ -17,6 +18,7 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
   moves,
   stats,
   pokemonId,
+  isLoadingData,
 }) => {
   return (
     <section
@@ -25,26 +27,34 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
         getBackgroundColorPokemon(pokemonTypes[0]?.type?.name ?? ''),
       )}
     >
-      <DetailTemplateHeader pokemonName={pokemonName} tagId={pokemonId} />
+      {isLoadingData ? (
+        <section className="loading-container">
+          <Loader2 className="spinner-icon" />
+        </section>
+      ) : (
+        <>
+          <DetailTemplateHeader pokemonName={pokemonName} tagId={pokemonId} />
 
-      <img
-        className="pokeball-background"
-        src={PokeballBackground}
-        alt="pokeball background"
-      />
+          <img
+            className="pokeball-background"
+            src={PokeballBackground}
+            alt="pokeball background"
+          />
 
-      <DetailInfoSection
-        pokemonInfo={{
-          pokemonHeight,
-          pokemonImage,
-          pokemonTypes,
-          pokemonWeight,
-          pokemonLorem,
-          pokemonName,
-          moves,
-          stats,
-        }}
-      />
+          <DetailInfoSection
+            pokemonInfo={{
+              pokemonHeight,
+              pokemonImage,
+              pokemonTypes,
+              pokemonWeight,
+              pokemonLorem,
+              pokemonName,
+              moves,
+              stats,
+            }}
+          />
+        </>
+      )}
     </section>
   );
 };
