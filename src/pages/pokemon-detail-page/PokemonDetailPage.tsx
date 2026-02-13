@@ -1,5 +1,16 @@
+import { getPokemonById } from '@/api/get/get-pokemon-by-id/get-pokemon-by-id';
+import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context';
 import { PokemonDetailTemplate } from '@/templates/pokemon-detail-template/PokemonDetailTemplate';
+import { useQuery } from '@tanstack/react-query';
 
 export const PokemonDetailPage = () => {
+  const { selectedPokemon } = useAppContext();
+
+  const { data } = useQuery({
+    queryKey: ['GET_POKEMON_BY_ID', selectedPokemon],
+    queryFn: () => getPokemonById(selectedPokemon ?? 1),
+    enabled: !!selectedPokemon,
+  });
+  console.log('🚀 ~ PokemonDetailPage ~ data:', data);
   return <PokemonDetailTemplate />;
 };
