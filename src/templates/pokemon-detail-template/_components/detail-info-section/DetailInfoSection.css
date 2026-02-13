@@ -33,3 +33,29 @@
   font-weight: 700;
   color: var(--color-type-electric);
 }
+
+.pokemon-description {
+  display: inline-block;
+  width: 100%;
+  max-width: 312px;
+  padding-left: 18px;
+  margin: 20px auto 0px;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--gray-scale-dark);
+}
+
+.base-stats-text-wrapper {
+  margin-top: 24px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.base-stats-text {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 700;
+  color: var(--color-type-electric);
+}

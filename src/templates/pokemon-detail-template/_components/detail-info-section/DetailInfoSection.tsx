@@ -17,6 +17,15 @@ export const DetailInfoSection = () => {
       </div>
 
       <PokemonDetailStats />
+
+      <p className="pokemon-description">
+        Pikachu that can generate powerful electricity have cheek sacs that are extra soft
+        and super stretchy.
+      </p>
+
+      <div className="base-stats-text-wrapper">
+        <span className="base-stats-text">Base Stats</span>
+      </div>
     </section>
   );
 };
