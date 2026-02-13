@@ -5,3 +5,8 @@ export interface InfoWrapperProps {
   hasBorder?: 'right' | 'left' | 'none';
   customChildren?: React.ReactNode;
 }
+
+export interface PokemonDetailStatsProps {
+  pokemonWeight: number;
+  pokemonHeight: number;
+}

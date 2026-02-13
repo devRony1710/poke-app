@@ -2,8 +2,12 @@ import type { FC } from 'react';
 import './PokemonDetailStats.css';
 import WeightIcon from '@assets/icons/weight.svg';
 import RuleIcon from '@assets/icons/rule.svg';
-import type { InfoWrapperProps } from './PokemonDetailStats.types';
+import type {
+  InfoWrapperProps,
+  PokemonDetailStatsProps,
+} from './PokemonDetailStats.types';
 import clsx from 'clsx';
+import { formatHeight } from '@/lib/formatHeight';
 
 const InfoWrapper: FC<InfoWrapperProps> = ({
   statsLabel,
@@ -43,16 +47,24 @@ const Abilities = () => {
   );
 };
 
-export const PokemonDetailStats = () => {
+export const PokemonDetailStats: FC<PokemonDetailStatsProps> = ({
+  pokemonHeight,
+  pokemonWeight,
+}) => {
   return (
     <section className="detail-stats-wrapper ">
       <InfoWrapper
         statsLabel="Weight"
-        value="6,0 kg"
+        value={`${pokemonWeight} kg`}
         icon={WeightIcon}
         hasBorder="right"
       />
-      <InfoWrapper statsLabel="Height" value="0,4 m" icon={RuleIcon} hasBorder="right" />
+      <InfoWrapper
+        statsLabel="Height"
+        value={formatHeight(pokemonHeight)}
+        icon={RuleIcon}
+        hasBorder="right"
+      />
       <InfoWrapper statsLabel="Moves" hasBorder="none" customChildren={<Abilities />} />
     </section>
   );

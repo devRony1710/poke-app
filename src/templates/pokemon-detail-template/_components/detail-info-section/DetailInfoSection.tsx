@@ -9,6 +9,9 @@ import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
 export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({
   pokemonImage,
   pokemonsType,
+  pokemonHeight,
+  pokemonWeight,
+  pokemonLorem,
 }) => {
   return (
     <section className="detail-info-wrapper">
@@ -24,12 +27,9 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({
         <span className="about-text">About</span>
       </div>
 
-      <PokemonDetailStats />
+      <PokemonDetailStats pokemonHeight={pokemonHeight} pokemonWeight={pokemonWeight} />
 
-      <p className="pokemon-description">
-        Pikachu that can generate powerful electricity have cheek sacs that are extra soft
-        and super stretchy.
-      </p>
+      <p className="pokemon-description">{pokemonLorem}</p>
 
       <div className="base-stats-text-wrapper">
         <span className="base-stats-text">Base Stats</span>

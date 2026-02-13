@@ -9,16 +9,41 @@ export type PokemonTypes = {
   };
 };
 
+export type SpanishEntryType = {
+  flavor_text: string;
+  language: {
+    name: string;
+    url: string;
+  };
+  version: {
+    name: string;
+    url: string;
+  };
+};
+
 export interface PokemonByIdResponse {
   name: string;
   pokemonImage: string;
   types: PokemonTypes[];
+  height: number;
+  weight: number;
+  pokemonLorem: string;
 }
 
 export const getPokemonById = async (pokemonId: number): Promise<PokemonByIdResponse> => {
   try {
     const { data } = await api.get(`/pokemon/${pokemonId}`);
+
+    const { data: species } = await api.get(
+      `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`,
+    );
+
+    const spanishEntry = species.flavor_text_entries.find(
+      (entry: SpanishEntryType) => entry.language.name === 'es',
+    );
+
     return {
+      pokemonLorem: spanishEntry.flavor_text,
       pokemonImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`,
       ...data,
     };

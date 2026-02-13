@@ -4,4 +4,7 @@ export interface PokemonDetailTemplateProps {
   pokemonName: string;
   pokemonImage: string;
   pokemonTypes: PokemonTypes[];
+  pokemonHeight: number;
+  pokemonWeight: number;
+  pokemonLorem: string;
 }

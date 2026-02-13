@@ -19,6 +19,9 @@ export const PokemonDetailPage = () => {
       pokemonName={formatPokemonName(data?.name ?? 'Pikachu')}
       pokemonImage={data?.pokemonImage ?? ''}
       pokemonTypes={data?.types ?? []}
+      pokemonHeight={data?.height ?? 0}
+      pokemonWeight={data?.weight ?? 0}
+      pokemonLorem={data?.pokemonLorem ?? ''}
     />
   );
 };
