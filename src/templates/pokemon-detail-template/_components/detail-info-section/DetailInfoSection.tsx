@@ -6,19 +6,13 @@ import { PokemonStats } from '@/components/pokemon-stats-data/PokemonStatsData';
 import type { FC } from 'react';
 import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
 
-export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({
-  pokemonImage,
-  pokemonsType,
-  pokemonHeight,
-  pokemonWeight,
-  pokemonLorem,
-}) => {
+export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) => {
   return (
     <section className="detail-info-wrapper">
-      <PokemonImageWithButtons pokemonImage={pokemonImage} />
+      <PokemonImageWithButtons pokemonImage={pokemonInfo.pokemonImage} />
 
       <div className="info-section-tags-wrapper">
-        {pokemonsType.map((type) => (
+        {pokemonInfo.pokemonTypes.map((type) => (
           <PokemonTypeTag label={type.type.name ?? ''} />
         ))}
       </div>
@@ -27,9 +21,12 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({
         <span className="about-text">About</span>
       </div>
 
-      <PokemonDetailStats pokemonHeight={pokemonHeight} pokemonWeight={pokemonWeight} />
+      <PokemonDetailStats
+        pokemonHeight={pokemonInfo.pokemonHeight}
+        pokemonWeight={pokemonInfo.pokemonWeight}
+      />
 
-      <p className="pokemon-description">{pokemonLorem}</p>
+      <p className="pokemon-description">{pokemonInfo.pokemonLorem}</p>
 
       <div className="base-stats-text-wrapper">
         <span className="base-stats-text">Base Stats</span>

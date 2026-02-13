@@ -1,9 +1,18 @@
-import type { PokemonTypes } from '@/api/get/get-pokemon-by-id/get-pokemon-by-id';
+import type { PokemonDetailTemplateProps } from '../../PokemonDetailTemplate.types';
 
 export interface DeatilInfoSectionProps {
-  pokemonImage: string;
-  pokemonsType: PokemonTypes[];
-  pokemonWeight: number;
-  pokemonHeight: number;
-  pokemonLorem: string;
+  pokemonInfo: Pick<
+    PokemonDetailTemplateProps,
+    | 'pokemonHeight'
+    | 'pokemonImage'
+    | 'pokemonLorem'
+    | 'pokemonName'
+    | 'pokemonTypes'
+    | 'pokemonWeight'
+  >;
+  // pokemonImage: string;
+  // pokemonsType: PokemonTypes[];
+  // pokemonWeight: number;
+  // pokemonHeight: number;
+  // pokemonLorem: string;
 }

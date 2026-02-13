@@ -24,11 +24,14 @@ export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
       />
 
       <DetailInfoSection
-        pokemonImage={pokemonImage}
-        pokemonsType={pokemonTypes}
-        pokemonHeight={pokemonHeight}
-        pokemonWeight={pokemonWeight}
-        pokemonLorem={pokemonLorem}
+        pokemonInfo={{
+          pokemonHeight,
+          pokemonImage,
+          pokemonTypes,
+          pokemonWeight,
+          pokemonLorem,
+          pokemonName,
+        }}
       />
     </section>
   );
