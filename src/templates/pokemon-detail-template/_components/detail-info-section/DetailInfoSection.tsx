@@ -19,7 +19,7 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
           <PokemonTypeTag
             key={type?.type?.name}
             label={type.type.name ?? ''}
-            pokemonType={pokemonType}
+            pokemonType={type.type.name}
           />
         ))}
       </div>
