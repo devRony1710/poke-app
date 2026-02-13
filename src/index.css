@@ -4,6 +4,8 @@
   --gray-scale: #666666;
   --gray-scale-dark: #1d1d1d;
   --gray-scale-bg: #efefef;
+  --color-type-grass: #74cb48;
+  --color-type-electric: #f9cf30;
 }
 
 * {

@@ -1,0 +1,12 @@
+.detail-page-main-wrapper {
+  background-color: var(--color-type-electric);
+  height: 100dvh;
+  width: 100dvw;
+  position: relative;
+}
+
+.pokeball-background {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
