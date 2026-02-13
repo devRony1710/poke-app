@@ -3,11 +3,13 @@ import { PokemonImageWithButtons } from '../pokemon-image-with-buttons/PokemonIm
 import { PokemonTypeTag } from '@/components/pokemon-type-tag/PokemonTypeTag';
 import { PokemonDetailStats } from '@/components/pokemon-detail-stats/PokemonDetailStats';
 import { PokemonStats } from '@/components/pokemon-stats-data/PokemonStatsData';
+import type { FC } from 'react';
+import type { DeatilInfoSectionProps } from './DetailInfoSection.types';
 
-export const DetailInfoSection = () => {
+export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonImage }) => {
   return (
     <section className="detail-info-wrapper">
-      <PokemonImageWithButtons />
+      <PokemonImageWithButtons pokemonImage={pokemonImage} />
 
       <div className="info-section-wrapper">
         <PokemonTypeTag />

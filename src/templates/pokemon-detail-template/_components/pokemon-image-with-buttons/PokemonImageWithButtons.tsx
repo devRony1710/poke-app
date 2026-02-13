@@ -2,8 +2,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import PikachuImg from '@assets/images/pikachu.png';
 import './PokemonImageWithButton.css';
 import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context';
+import type { FC } from 'react';
+import type { PokemonImageWithButtonsProps } from './PokemonImageWithButtons.types';
 
-export const PokemonImageWithButtons = () => {
+export const PokemonImageWithButtons: FC<PokemonImageWithButtonsProps> = ({
+  pokemonImage,
+}) => {
   const { selectedPokemon, setSelectedPokemon } = useAppContext();
 
   const handleChevronLeft = () => {
@@ -28,7 +32,11 @@ export const PokemonImageWithButtons = () => {
         <ChevronLeft className="chevron-styles" />
       </button>
 
-      <img className="pokemon-image-with-button" src={PikachuImg} alt="pikachu" />
+      <img
+        className="pokemon-image-with-button"
+        src={pokemonImage ?? PikachuImg}
+        alt="pikachu"
+      />
 
       <button className="chevron-button" type="button" onClick={handleChevronRight}>
         <ChevronRight className="chevron-styles" />

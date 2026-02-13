@@ -2,11 +2,16 @@ import { DetailTemplateHeader } from './_components/detail-template-header/Detai
 import PokeballBackground from '@assets/icons/pokeball-bg.svg';
 import './PokemonDetailTemplate.css';
 import { DetailInfoSection } from './_components/detail-info-section/DetailInfoSection';
+import type { FC } from 'react';
+import type { PokemonDetailTemplateProps } from './PokemonDetailTemplate.types';
 
-export const PokemonDetailTemplate = () => {
+export const PokemonDetailTemplate: FC<PokemonDetailTemplateProps> = ({
+  pokemonName,
+  pokemonImage,
+}) => {
   return (
     <section className="detail-page-main-wrapper">
-      <DetailTemplateHeader />
+      <DetailTemplateHeader pokemonName={pokemonName} />
 
       <img
         className="pokeball-background"
@@ -14,7 +19,7 @@ export const PokemonDetailTemplate = () => {
         alt="pokeball background"
       />
 
-      <DetailInfoSection />
+      <DetailInfoSection pokemonImage={pokemonImage} />
     </section>
   );
 };
