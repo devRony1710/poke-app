@@ -1,0 +1,35 @@
+.input-container {
+  width: 100%;
+  max-width: 280px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.input-search-icon {
+  height: 16px;
+  width: 16px;
+  object-fit: cover;
+}
+
+.input-button-clean-value {
+  background-color: transparent;
+  border: none;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: var(--primary-red-color);
+}

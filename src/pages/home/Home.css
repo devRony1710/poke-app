@@ -1,0 +1,8 @@
+.home-container {
+  background-color: var(--primary-red-color);
+  height: 100dvh;
+  width: 100dvw;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

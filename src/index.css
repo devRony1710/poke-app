@@ -1,68 +1,171 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  --primary-red-color: #dc0a2d;
+  --gray-scale: #666666;
+  --gray-scale-light: #e0e0e0;
+  --gray-scale-dark: #1d1d1d;
+  --gray-scale-bg: #efefef;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Pokemon types colors */
+  --color-type-grass: #74cb48;
+  --color-type-electric: #f9cf30;
+  --color-type-fire: #f57d31;
+  --color-type-water: #6493eb;
+  --color-type-bug: #a7b723;
+  --color-type-ghost: #70559b;
+  --color-type-normal: #aaa67f;
+  --color-type-physic: #fb5584;
+  --color-type-steel: #b7b9d0;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --color-type-grass-light: #e3f5da;
+  --color-type-electric-light: #fef5d6;
+  --color-type-fire-light: #fde4d8;
+  --color-type-water-light: #e0e9fa;
+  --color-type-bug-light: #edf2d5;
+  --color-type-ghost-light: #e2ddea;
+  --color-type-normal-light: #eeede6;
+  --color-type-physic-light: #fedce6;
+  --color-type-steel-light: #f1f1f6;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+* {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* background colors  */
+
+.background-color-electric {
+  background-color: var(--color-type-electric);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.background-color-grass {
+  background-color: var(--color-type-grass);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.background-color-fire {
+  background-color: var(--color-type-fire);
+}
+
+.background-color-water {
+  background-color: var(--color-type-water);
+}
+
+.background-color-bug {
+  background-color: var(--color-type-bug);
+}
+
+.background-color-ghost {
+  background-color: var(--color-type-ghost);
+}
+
+.background-color-normal {
+  background-color: var(--color-type-normal);
+}
+
+.background-color-physic {
+  background-color: var(--color-type-physic);
+}
+
+.background-color-steel {
+  background-color: var(--color-type-steel);
+}
+
+/* background colors light  */
+.background-color-electric-light {
+  background-color: var(--color-type-electric-light);
+}
+
+.background-color-grass-light {
+  background-color: var(--color-type-grass-light);
+}
+
+.background-color-fire-light {
+  background-color: var(--color-type-fire-light);
+}
+
+.background-color-water-light {
+  background-color: var(--color-type-water-light);
+}
+
+.background-color-bug-light {
+  background-color: var(--color-type-bug-light);
+}
+
+.background-color-ghost-light {
+  background-color: var(--color-type-ghost-light);
+}
+
+.background-color-normal-light {
+  background-color: var(--color-type-normal-light);
+}
+
+.background-color-physic-light {
+  background-color: var(--color-type-physic-light);
+}
+
+.background-color-steel-light {
+  background-color: var(--color-type-steel-light);
+}
+
+/* text colors by pokemon */
+
+.text-color-electric {
+  color: var(--color-type-electric);
+}
+
+.text-color-grass {
+  color: var(--color-type-grass);
+}
+
+.text-color-fire {
+  color: var(--color-type-fire);
+}
+
+.text-color-water {
+  color: var(--color-type-water);
+}
+
+.text-color-bug {
+  color: var(--color-type-bug);
+}
+
+.text-color-ghost {
+  color: var(--color-type-ghost);
+}
+
+.text-color-normal {
+  color: var(--color-type-normal);
+}
+
+.text-color-physic {
+  color: var(--color-type-physic);
+}
+
+.text-color-steel {
+  color: var(--color-type-steel);
+}
+
+.spinner-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+}
+
+/* Spinner styles */
+.spinner-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    transform: rotate(360deg);
   }
 }

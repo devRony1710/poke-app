@@ -1,73 +1,130 @@
-# React + TypeScript + Vite
+# Pokédex App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web tipo Pokédex construida con React, enfocada en una experiencia mobile-first.  
+Permite explorar Pokémon usando paginación infinita, búsqueda, ordenamiento y una vista de detalle.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### Pokédex List
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Listado infinito de Pokémon
+- Infinite scroll usando IntersectionObserver
+- Carga progresiva desde la PokéAPI
+- Límite máximo de páginas consultadas para proteger la API
 
-## Expanding the ESLint configuration
+### Search
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Búsqueda por nombre
+- Búsqueda por número (ID)
+- Filtrado en tiempo real
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Sort
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Ordenamiento exclusivo por:
+  - Número (ID)
+  - Nombre (A–Z)
+- Implementado con input type="radio"
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Pokémon Detail
+
+- Vista individual por Pokémon
+- Información básica:
+  - Nombre
+  - Número
+  - Tipos
+  - Descripción
+  - Estadísticas base
+- Diseño visual diferenciado por Pokémon
+
+---
+
+## Testing
+
+- Tests unitarios con Vitest
+- Testing de componentes con React Testing Library
+- Hooks y efectos secundarios mockeados para evitar dependencias del DOM
+
+---
+
+## Estructura de carpetas
+
+| Path               | Description                                               |
+| ------------------ | --------------------------------------------------------- |
+| `src/`             | Código fuente principal de la aplicación                  |
+| `src/main.tsx`     | Punto de entrada de la aplicación                         |
+| `src/App.tsx`      | Componente raíz                                           |
+| `src/routes/`      | Configuración de rutas con React Router                   |
+| `src/pages/`       | Páginas principales de la aplicación                      |
+| `src/components/`  | Componentes reutilizables de UI                           |
+| `src/hooks/`       | Custom hooks (intersection observer, click outside, etc.) |
+| `src/api/`         | Lógica de consumo de la PokéAPI                           |
+| `src/test/`        | Tests unitarios y de componentes                          |
+| `src/assets/`      | Recursos estáticos (imágenes, íconos)                     |
+| `public/`          | Archivos públicos                                         |
+| `dist/`            | Build de producción                                       |
+| `vite.config.ts`   | Configuración de Vite                                     |
+| `tsconfig.json`    | Configuración de TypeScript                               |
+| `eslint.config.js` | Reglas de ESLint                                          |
+| `.prettierrc`      | Configuración de Prettier                                 |
+| `package.json`     | Scripts y dependencias                                    |
+| `yarn.lock`        | Lockfile de dependencias                                  |
+
+## Tech Stack
+
+Este proyecto utiliza las siguientes tecnologías:
+
+| Área       | Tecnología                    |
+| ---------- | ----------------------------- |
+| Lenguaje   | TypeScript                    |
+| UI         | React                         |
+| Routing    | React Router                  |
+| Build Tool | Vite                          |
+| Testing    | Vitest, React Testing Library |
+| Linting    | ESLint                        |
+| Formatting | Prettier                      |
+
+---
+
+## Scripts
+
+Los siguientes scripts están disponibles desde `package.json`
+
+| Script          | Uso                                    |
+| --------------- | -------------------------------------- |
+| `yarn dev`      | Inicia el servidor de desarrollo       |
+| `yarn build`    | Compila la aplicación para producción  |
+| `yarn preview`  | Vista previa de la build de producción |
+| `yarn test`     | Ejecuta los tests                      |
+| `yarn lint`     | Corre ESLint                           |
+| `yarn lint:fix` | Arregla errores con ESLint             |
+| `yarn format`   | Formatea el código con Prettier        |
+
+---
+
+## Getting Started
+
+### Instalar dependencias
+
+```bash
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Correr el proyecto en local
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+yarn dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Correr test unitarios
+
+```bash
+yarn test
+```
+
+Correr linter
+
+```bash
+yarn lint
 ```

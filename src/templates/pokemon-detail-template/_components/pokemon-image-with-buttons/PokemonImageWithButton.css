@@ -1,0 +1,29 @@
+.detail-pokemon-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  top: -32%;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+}
+
+.pokemon-image-with-button {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.chevron-button {
+  border: none;
+  background-color: transparent;
+}
+
+.chevron-button:disabled {
+  opacity: 0%;
+}
+
+.chevron-styles {
+  color: white;
+}
