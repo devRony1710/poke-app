@@ -1,10 +1,15 @@
 import './DetailInfoSection.css';
 import { PokemonImageWithButtons } from '../pokemon-image-with-buttons/PokemonImageWithButtons';
+import { PokemonTypeTag } from '@/components/pokemon-type-tag/PokemonTypeTag';
 
 export const DetailInfoSection = () => {
   return (
     <section className="detail-info-wrapper">
       <PokemonImageWithButtons />
+
+      <div className="info-section-wrapper">
+        <PokemonTypeTag />
+      </div>
     </section>
   );
 };
