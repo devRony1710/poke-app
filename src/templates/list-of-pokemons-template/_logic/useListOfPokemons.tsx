@@ -1,4 +1,4 @@
-import { getListOfPokemons } from '@/api/get-list-of-pokemons/get-list-of-pokemons';
+import { getListOfPokemons } from '@/api/get/get-list-of-pokemons/get-list-of-pokemons';
 import { useIntersection } from '@/hooks/use-intersection-observer/use-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';

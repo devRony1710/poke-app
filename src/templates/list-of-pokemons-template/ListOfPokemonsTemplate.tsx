@@ -7,8 +7,7 @@ import { useAppContext } from '@/hooks/use-intersection-observer/use-app-context
 
 export const ListOfPokemonsTemplate = () => {
   const { data, observerRef, isFetchingNextPage, navigate } = useListOfPokemons();
-  const { selectedPokemon, setSelectedPokemon } = useAppContext();
-  console.log('🚀 ~ ListOfPokemonsTemplate ~ selectedPokemon:', selectedPokemon);
+  const { setSelectedPokemon } = useAppContext();
 
   const handleClickPokemonCard = (pokemonId: number) => {
     navigate(`/pokemon-detail/${pokemonId}`);
