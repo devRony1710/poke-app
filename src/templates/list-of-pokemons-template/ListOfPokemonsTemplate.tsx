@@ -10,7 +10,7 @@ export const ListOfPokemonsTemplate = () => {
   const { setSelectedPokemon } = useAppContext();
 
   const handleClickPokemonCard = (pokemonId: number) => {
-    navigate(`/pokemon-detail/${pokemonId}`);
+    navigate(`/pokemon-detail`);
     setSelectedPokemon(pokemonId);
   };
 
