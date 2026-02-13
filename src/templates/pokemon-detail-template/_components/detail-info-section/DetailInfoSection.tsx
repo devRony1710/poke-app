@@ -13,7 +13,10 @@ export const DetailInfoSection: FC<DeatilInfoSectionProps> = ({ pokemonInfo }) =
 
       <div className="info-section-tags-wrapper">
         {pokemonInfo.pokemonTypes.map((type) => (
-          <PokemonTypeTag label={type.type.name ?? ''} />
+          <PokemonTypeTag
+            label={type.type.name ?? ''}
+            pokemonType={pokemonInfo.pokemonTypes[0].type.name}
+          />
         ))}
       </div>
 
