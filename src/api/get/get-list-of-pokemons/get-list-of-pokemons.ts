@@ -1,4 +1,5 @@
-import { api } from '../axios-config/axios-config';
+import { api } from '@/api/axios-config/axios-config';
+import { isAxiosError } from 'axios';
 
 const LIMIT = 10;
 
@@ -17,20 +18,28 @@ export interface PokemonListResponse {
 export const getListOfPokemons = async ({
   pageParam = 0,
 }): Promise<PokemonListResponse> => {
-  const { data } = await api.get(`/pokemon?limit=${LIMIT}&offset=${pageParam}`);
+  try {
+    const { data } = await api.get(`/pokemon?limit=${LIMIT}&offset=${pageParam}`);
 
-  const formatted = data.results.map((pokemon: Pokemon) => {
-    const id = Number(pokemon.url.split('/').filter(Boolean).at(-1));
+    const formatted = data.results.map((pokemon: Pokemon) => {
+      const id = Number(pokemon.url.split('/').filter(Boolean).at(-1));
+
+      return {
+        id,
+        name: pokemon.name,
+        image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+      };
+    });
 
     return {
-      id,
-      name: pokemon.name,
-      image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`,
+      results: formatted,
+      nextOffset: pageParam + LIMIT,
     };
-  });
+  } catch (error: unknown) {
+    if (isAxiosError(error)) {
+      throw new Error(`Failed to fetch pokemons: ${error.message}`);
+    }
 
-  return {
-    results: formatted,
-    nextOffset: pageParam + LIMIT,
-  };
+    throw new Error('Unknown error fetching pokemons');
+  }
 };
