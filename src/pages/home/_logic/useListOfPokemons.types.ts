@@ -17,7 +17,7 @@ export interface UseListOfPokemonsReturnType {
   setSearch: React.Dispatch<React.SetStateAction<string | null>>;
   setOpenFilterType: React.Dispatch<React.SetStateAction<boolean>>;
   openFilterType: boolean;
-  modalFilterRef: ModalFilterRefType;
+  modalFilterRef?: ModalFilterRefType;
   filterSelected: {
     byName: boolean;
     byNumber: boolean;
